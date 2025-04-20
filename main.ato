@@ -1,15 +1,19 @@
-import ElectricPower, Capacitor, I2C
+import ElectricPower, Capacitor, I2C, USB2_0_IF
 from "nose.ato" import Nose
 from "atopile/esp32s3/esp32s3.ato" import ESP32S3
 from "atopile/usb-connectors/usb-connectors.ato" import USBCConn
 
 module Nonhumanscent:
-  power = new ElectricPower
-
   usbc = new USBCConn
   power_usb = new ElectricPower
+  power_usb ~ usbc.power
+
+  power_3v3 = new ElectricPower
 
   uc = new ESP32S3
+  uc.power ~ power
+  uc.USB2_0_IF ~ usbc.USB2_0_IF 
+
   nose1 = new Nose
   uc.i2c ~ nose1.i2c
   uc.power ~ nose1.power
