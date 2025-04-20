@@ -1,4 +1,15 @@
-"""Brand new atopile project!"""
+import ElectricPower, Capacitor, I2C
+from "nose.ato" import Nose
+from "atopile/esp32s3/esp32s3.ato" import ESP32S3
+from "atopile/usb-connectors/usb-connectors.ato" import USBCConn
 
-module App:
-    pass
+module Nonhumanscent:
+  power = new ElectricPower
+
+  usbc = new USBCConn
+  power_usb = new ElectricPower
+
+  uc = new ESP32S3
+  nose1 = new Nose
+  uc.i2c ~ nose1.i2c
+  uc.power ~ nose1.power
