@@ -8,8 +8,6 @@ paths:
 builds:
   default:
     entry: main.ato:App
-  nose:
-    entry: /home/lucy/atopile_projects/nonhumanscent/nose.ato:Nose
 dependencies:
 - type: registry
   identifier: atopile/esp32s3
