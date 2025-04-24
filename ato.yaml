@@ -7,7 +7,7 @@ paths:
 
 builds:
   default:
-    entry: main.ato:Nonhumanscent
+    entry: main.ato:App
   nose:
     entry: /home/lucy/atopile_projects/nonhumanscent/nose.ato:Nose
 dependencies:
