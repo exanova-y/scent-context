@@ -16,12 +16,15 @@ dependencies:
   identifier: atopile/usb-connectors
   release: 0.1.0
 
+- type: registry
+  identifier: atopile/sd-card-slots
+  release: 0.1.0
 package:
   identifier: eigenlucy/nonhumanscent
   repository: https://github.com/eigenlucy/nonhumanscent
   authors:
-    - name: Lucy Moglia
-      email: eigenlucy@proton.me
+  - name: Lucy Moglia
+    email: eigenlucy@proton.me
   summary: ML-Assisted Gas Composition Sensing with BME688 MOX + ESP32S3
   license: GNU
   homepage: https://github.com/eigenlucy/nonhumanscent
