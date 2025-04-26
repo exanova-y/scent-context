@@ -4,6 +4,7 @@ from "nose.ato" import Nose
 from "atopile/esp32s3/esp32s3.ato" import ESP32S3
 from "atopile/usb-connectors/usb-connectors.ato" import USBCConn
 from "ams1117-33/elec/src/ams1117-33.ato" import AMS111733
+from ".ato/modules/atopile/sd-card-slots/tf-01a.ato" import TF_01A
 
 module App:
   usbc = new USBCConn
@@ -13,7 +14,7 @@ module App:
   power_usb.gnd ~ usbc.usb2.buspower.gnd
 
   uc = new ESP32S3
-  uc.power ~ power_usb
+  uc.power ~ power_3v3
   uc.usb2 ~ usbc.usb2
 
   ldo = new AMS111733
@@ -22,4 +23,8 @@ module App:
 
   nose1 = new Nose
   uc.i2c ~ nose1.i2c
-  uc.power ~ nose1.power
+  nose1.power ~ power_3v3
+
+  flash = new TF_01A
+  flash.power ~ power_3v3
+  flash.spi ~ uc.spi2
